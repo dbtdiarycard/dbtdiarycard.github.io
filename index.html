@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBT Diary Card - DBT Skills Tracking Journal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .content-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .skills-list {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-check {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .benefits-section h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .faq-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.2em;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DBT Diary Card</h1>
+            <p class="subtitle">Your Complete DBT Skills Tracking Journal for Emotional Awareness and Growth.</p>
+            <a href="https://reco.to/Q2hbdb" class="cta-button">👉 Buy the DBT Diary Card</a>
+        </header>
+
+        <div class="content-section">
+            <h2>What is a DBT Diary Card?</h2>
+            <p>The <strong>DBT diary card</strong> is a core tool in Dialectical Behavior Therapy (DBT), used to track emotions, behaviors, and DBT skills on a daily and weekly basis. This powerful therapeutic instrument helps individuals practicing DBT maintain consistency, build emotional awareness, and create meaningful progress in their mental health journey.</p>
+
+            <p>This <strong>DBT diary card journal</strong> was designed to support consistent DBT practice through a clear, structured, and therapeutic layout. Whether you're working with a therapist, attending group sessions, or practicing DBT skills independently, this <strong>DBT diary card</strong> provides the framework you need to track your progress effectively.</p>
+
+            <h3>Understanding the DBT Diary Card</h3>
+            <p>A <strong>DBT diary card</strong> is more than just a tracking tool—it's a structured journal that helps you consistently monitor your emotional states, target behaviors, skill usage, and weekly patterns. This <strong>DBT diary card</strong> supports awareness, accountability, and meaningful progress in DBT work, making it an essential companion for anyone serious about their therapeutic journey.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included in This DBT Diary Card?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Daily Tracking</h3>
+                    <p>Monitor emotions, behaviors, and urges with detailed daily entries</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Skills Monitoring</h3>
+                    <p>Track all four DBT skill modules systematically</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Weekly Overview</h3>
+                    <p>Identify patterns and prepare for therapy sessions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Reflection Space</h3>
+                    <p>Note key events and plan future skill practice</p>
+                </div>
+            </div>
+
+            <h3>📝 Daily Emotion and Behavior Tracking</h3>
+            <p>Each <strong>DBT diary card</strong> includes dedicated space for comprehensive daily monitoring. This <strong>DBT diary card</strong> format allows you to record:</p>
+            <ul style="margin-left: 40px; margin-bottom: 20px;">
+                <li>Daily entries from Monday to Sunday</li>
+                <li>Emotion intensity ratings using a clear 0-5 scale</li>
+                <li>Prompting or triggering events that influenced your day</li>
+                <li>Target behaviors you're working to change</li>
+                <li>Urges and actions taken in response to emotional situations</li>
+            </ul>
+            <p>The layout of this <strong>DBT diary card</strong> is clear and easy to follow, supporting consistent daily use without overwhelming you with complexity.</p>
+
+            <h3>🧠 Complete DBT Skills Tracking</h3>
+            <p>This <strong>DBT diary card</strong> allows you to track which DBT skills were used each day, organized by the four essential DBT skill modules:</p>
+            
+            <div class="skills-list">
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Mindfulness</strong> - Track your present-moment awareness practices
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Emotion Regulation</strong> - Monitor how you manage intense emotions
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Distress Tolerance</strong> - Record crisis survival and acceptance skills
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Interpersonal Effectiveness</strong> - Track relationship and communication skills
+                </div>
+            </div>
+
+            <p>This comprehensive structure makes the <strong>DBT diary card</strong> a practical, skills-based journal rather than a generic notebook, ensuring you stay focused on the specific DBT techniques that create lasting change.</p>
+
+            <a href="https://reco.to/Q2hbdb" class="cta-button">👉 Get the DBT Diary Card</a>
+        </div>
+
+        <div class="content-section">
+            <h2>Weekly Overview and Reflection with Your DBT Diary Card</h2>
+            <p>The <strong>DBT diary card</strong> includes carefully designed weekly sections that help you gain deeper insights into your emotional and behavioral patterns. These weekly reviews are crucial for understanding your progress and preparing effectively for therapy sessions.</p>
+
+            <p>With this <strong>DBT diary card</strong>, your weekly reflection allows you to:</p>
+            <ul style="margin-left: 40px; margin-bottom: 20px;">
+                <li>Identify recurring emotional and behavioral patterns across the week</li>
+                <li>Evaluate your consistency in DBT skill use and application</li>
+                <li>Track meaningful progress over time with clear documentation</li>
+                <li>Prepare thoughtfully for therapy sessions with organized insights</li>
+            </ul>
+
+            <p>Additional reflection space in the <strong>DBT diary card</strong> allows for notes about key events, breakthrough moments, and skills to focus on in the following week. This weekly overview strengthens insight and supports long-term emotional regulation development.</p>
+        </div>
+
+        <div class="benefits-section">
+            <h2>Benefits of Using a DBT Diary Card</h2>
+            <p>Regular use of a <strong>DBT diary card</strong> provides numerous therapeutic benefits that enhance your DBT practice and overall emotional wellbeing:</p>
+            <div class="features-grid" style="margin-top: 30px;">
+                <div style="text-align: center;">
+                    <h3 style="color: white;">🎯 Increased Awareness</h3>
+                    <p>Enhanced emotional awareness and self-understanding through consistent tracking</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: white;">💪 Greater Consistency</h3>
+                    <p>Improved consistency in DBT skill use and application in daily life</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: white;">📈 Clear Insights</h3>
+                    <p>Clearer insight into emotional patterns and behavioral triggers</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: white;">🤝 Better Engagement</h3>
+                    <p>Stronger therapeutic engagement and more productive therapy sessions</p>
+                </div>
+            </div>
+            <p style="margin-top: 30px;">The <strong>DBT diary card</strong> is widely recognized as one of the most effective tools for maintaining consistent DBT practice over time, helping thousands of individuals create lasting positive change in their lives.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Who is This DBT Diary Card For?</h2>
+            <p>This <strong>DBT diary card</strong> is thoughtfully designed to meet the needs of diverse individuals at various stages of their DBT journey:</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Adults in DBT</h3>
+                    <p>Perfect for adults practicing DBT skills in individual or group therapy settings</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Teens & Adolescents</h3>
+                    <p>Appropriate for teenagers working on emotional regulation and coping skills</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Therapists</h3>
+                    <p>Ideal resource for therapists and DBT programs to support client progress</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Independent Practitioners</h3>
+                    <p>Valuable for anyone seeking structured emotional regulation support</p>
+                </div>
+            </div>
+
+            <p>The tone and structure of this <strong>DBT diary card</strong> are professional, clinical, and practical, making it suitable for therapeutic settings while remaining accessible for personal use.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>DBT Diary Card Format and Design</h2>
+            <p>This <strong>DBT diary card</strong> features a carefully crafted format that prioritizes usability and therapeutic effectiveness:</p>
+            <ul style="margin-left: 40px; margin-bottom: 20px;">
+                <li><strong>Structured Layout:</strong> Clear <strong>DBT diary card</strong> organization that's easy to navigate</li>
+                <li><strong>Daily & Weekly Sections:</strong> Designed for both daily tracking and weekly review</li>
+                <li><strong>Clean Design:</strong> Professional aesthetic that supports focused reflection</li>
+                <li><strong>Easy Integration:</strong> Seamlessly fits into existing therapy routines and practices</li>
+                <li><strong>Evidence-Based:</strong> Based on standard DBT methodology and clinical best practices</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Why Choose This DBT Diary Card?</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Clinically Sound:</strong> Based on standard DBT methodology developed by Dr. Marsha Linehan
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Comprehensive Coverage:</strong> Includes all four DBT skill modules for complete tracking
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Clear Structure:</strong> Organized format that makes daily tracking straightforward
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Therapy-Focused:</strong> Practical design created with therapeutic goals in mind
+                </div>
+                <div class="skill-item">
+                    <span class="skill-check">✔</span>
+                    <strong>Long-Term Use:</strong> Durable format suitable for extended DBT practice
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>DBT Diary Card - Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is a DBT diary card used for?</div>
+                <p>A <strong>DBT diary card</strong> is used to track emotions, behaviors, urges, and DBT skills on a daily basis. This systematic tracking helps individuals apply DBT strategies consistently in daily life, identify patterns, and monitor progress over time. The <strong>DBT diary card</strong> serves as a bridge between therapy sessions and real-world application.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How often should a DBT diary card be filled out?</div>
+                <p>A <strong>DBT diary card</strong> is typically completed daily, ideally at the end of each day when events are still fresh in your memory. The <strong>DBT diary card</strong> should then be reviewed weekly to identify patterns, track skill usage, and guide therapy discussions. This daily practice is essential for gaining the full benefits of the <strong>DBT diary card</strong>.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is a DBT diary card only for people in therapy?</div>
+                <p>While a <strong>DBT diary card</strong> is commonly used as part of formal DBT therapy programs, it can also be used independently by anyone practicing DBT skills on their own. Many individuals find that using a <strong>DBT diary card</strong> helps them maintain accountability and track their progress even without regular therapy sessions.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can teens use a DBT diary card?</div>
+                <p>Yes, absolutely. A <strong>DBT diary card</strong> can be effectively used by both teens and adults. Many adolescents benefit greatly from using a <strong>DBT diary card</strong> to develop emotional awareness and coping skills. The structured format of the <strong>DBT diary card</strong> helps teens build healthy tracking habits that support their emotional development.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What skills are tracked in a DBT diary card?</div>
+                <p>A comprehensive <strong>DBT diary card</strong> tracks skills from all four core DBT modules: Mindfulness (present-moment awareness), Emotion Regulation (managing intense emotions), Distress Tolerance (crisis survival and acceptance), and Interpersonal Effectiveness (relationship and communication skills). This complete coverage ensures your <strong>DBT diary card</strong> supports all aspects of DBT practice.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does a DBT diary card help with therapy?</div>
+                <p>Using a <strong>DBT diary card</strong> significantly enhances the therapy process by providing concrete data about your emotional patterns, skill usage, and behavioral responses. Your therapist can review your <strong>DBT diary card</strong> to identify areas needing focus, celebrate successes, and adjust treatment strategies. The <strong>DBT diary card</strong> makes therapy sessions more productive and goal-oriented.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use a DBT diary card for long-term tracking?</div>
+                <p>Yes, this <strong>DBT diary card</strong> is specifically designed for long-term use. Consistent use of a <strong>DBT diary card</strong> over weeks and months reveals important patterns and demonstrates progress that might not be obvious day-to-day. Many individuals continue using their <strong>DBT diary card</strong> for years as part of their ongoing mental health maintenance.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>How to Use Your DBT Diary Card Effectively</h2>
+            <p style="font-size: 1.1em; margin: 30px 0; text-align: left;">Getting the most value from your <strong>DBT diary card</strong> requires consistent practice and a clear understanding of how to complete it effectively. Whether you're new to DBT or have been practicing for years, following these guidelines will help you maximize the therapeutic benefits of your <strong>DBT diary card</strong>.</p>
+            
+            <h3 style="color: #667eea; text-align: left; margin-top: 30px;">Establishing a Daily Routine</h3>
+            <p style="text-align: left; line-height: 1.8;">The foundation of effective <strong>DBT diary card</strong> use is consistency. Set aside 5-10 minutes at the end of each day to complete your <strong>DBT diary card</strong>. Many people find that completing their <strong>DBT diary card</strong> right before bed works best, as the day's events are still fresh in their memory. Others prefer completing their <strong>DBT diary card</strong> during a quiet moment in the evening, such as after dinner or during their wind-down routine. The key is choosing a time that you can stick with consistently, making your <strong>DBT diary card</strong> practice a non-negotiable part of your daily self-care routine.</p>
+            
+            <h3 style="color: #667eea; text-align: left; margin-top: 30px;">Step-by-Step Completion Guide</h3>
+            <p style="text-align: left; line-height: 1.8;">When filling out your <strong>DBT diary card</strong>, start by rating your emotions for the day using the 0-5 intensity scale. Be honest with yourself—your <strong>DBT diary card</strong> is a tool for growth, not judgment. Next, identify any triggering events that prompted strong emotional responses. Record these in your <strong>DBT diary card</strong> with enough detail that you'll remember the context when reviewing later. Then, note any target behaviors you're working to change, whether you experienced urges related to these behaviors, and what actions you actually took. This section of your <strong>DBT diary card</strong> is crucial for tracking progress over time.</p>
+            
+            <p style="text-align: left; line-height: 1.8;">The skills tracking section of your <strong>DBT diary card</strong> is where you document which DBT skills you used throughout the day. Check off each skill you practiced, whether it was mindfulness meditation, a distress tolerance technique like TIPP, an emotion regulation strategy, or an interpersonal effectiveness skill like DEAR MAN. Even if you only used a skill for a moment, record it in your <strong>DBT diary card</strong>. Over time, you'll see patterns in which skills you rely on most and which ones you might need to practice more intentionally.</p>
+            
+            <h3 style="color: #667eea; text-align: left; margin-top: 30px;">Weekly Review Process</h3>
+            <p style="text-align: left; line-height: 1.8;">Your <strong>DBT diary card</strong> becomes most valuable when you review it weekly. Set aside 15-20 minutes each week to look back at your completed <strong>DBT diary card</strong> entries. Look for patterns in your emotional ratings—do certain days consistently show higher intensity? Are there specific triggers that appear repeatedly in your <strong>DBT diary card</strong>? Notice which skills you're using most frequently and which modules might need more attention. This weekly review of your <strong>DBT diary card</strong> helps you identify what's working, what needs adjustment, and what to discuss with your therapist in your next session.</p>
+            
+            <h3 style="color: #667eea; text-align: left; margin-top: 30px;">Common Tips for Success</h3>
+            <p style="text-align: left; line-height: 1.8;">Keep your <strong>DBT diary card</strong> in a consistent, easily accessible location. Many people keep their <strong>DBT diary card</strong> on their nightstand or in a dedicated therapy folder. If you miss a day, don't abandon your <strong>DBT diary card</strong> practice—simply fill it out the next day to the best of your memory and continue forward. Remember that your <strong>DBT diary card</strong> is a tool for awareness and growth, not perfection. Some days you'll have more to record than others, and that's completely normal. The goal of your <strong>DBT diary card</strong> is progress, not perfection, and every day you complete it is a step forward in your DBT journey.</p>
+            
+            <h2 style="margin-top: 50px;">Start Tracking Your DBT Journey Today</h2>
+            <p style="font-size: 1.2em; margin: 30px 0;">If you're looking for a clear, structured, and comprehensive <strong>DBT diary card</strong>, this journal is a powerful tool to support your DBT work. Whether you're just beginning DBT or are an experienced practitioner, this <strong>DBT diary card</strong> provides the structure and support you need to create lasting positive change.</p>
+            <p style="font-size: 1.2em; margin: 30px 0;">Don't wait to start building better emotional awareness and regulation. Get your <strong>DBT diary card</strong> today and take the next step in your therapeutic journey.</p>
+            <a href="https://reco.to/Q2hbdb" class="cta-button" style="font-size: 1.3em; padding: 20px 50px;">👉 Start Using the DBT Diary Card Today</a>
+        </div>
+    </div>
+</body>
+</html>
